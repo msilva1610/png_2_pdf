@@ -16,3 +16,13 @@ for img in images:
 file.close()
 print("Successfully made pdf file")
 # img_path = f"/Users/4431/dash/novo_dash_st/arquivos/scr/{images[0]}"
+
+
+merger = PyPDF2.PdfMerger()
+
+lista_arquivos_pdfs = [i for i in os.listdir(directory_path) if i.endswith(".pdf")]
+lista_arquivos_pdfs.sort()
+
+for arquivo_pdf in lista_arquivos_pdfs:
+    merger.append(f'/Users/4431/dash/novo_dash_st/arquivos/scr/{arquivo_pdf}')
+merger.write('/Users/4431/dash/novo_dash_st/arquivos/scr/sre.pdf')
